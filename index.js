@@ -3,12 +3,20 @@ function updateValues(numberOfMonths, depositAmount, debitAmount) {
     document.getElementById("deposit-amount").value = depositAmount;
     document.getElementById("debit-amount").value = debitAmount;
 
-    document.getElementById("monthly-payments").textContent = Math.ceil((depositAmount - debitAmount) / numberOfMonths) + " rubles";
-
     document.querySelectorAll(".options > .active").forEach(node => {
         node.classList.remove('active');
     });
+
+    updateMonthlyPayments();
     updateBubbles();
+}
+
+function updateMonthlyPayments() {
+    let numberOfMonths = document.getElementById("duration").value;
+    let depositAmount = document.getElementById("deposit-amount").value;
+    let debitAmount = document.getElementById("debit-amount").value;
+
+    document.getElementById("monthly-payments").textContent = Math.ceil((depositAmount - debitAmount) / numberOfMonths) + " rubles";
 }
 
 (function () {
@@ -32,7 +40,10 @@ function updateValues(numberOfMonths, depositAmount, debitAmount) {
     document.getElementById("saving-account").click();
 
     document.querySelectorAll(".row > input").forEach(element => {
-        element.addEventListener("change", () => updateBubbles());
+        element.addEventListener("change", () => {
+            updateBubbles();
+            updateMonthlyPayments();
+        });
     })
 })();
 
@@ -57,4 +68,5 @@ function updateBubbles() {
 
         bubble.style.left = percent * 94 + "%";
     }
+
 }

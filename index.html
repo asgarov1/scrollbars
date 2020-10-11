@@ -20,20 +20,20 @@
         <div>
             <label for="duration">Duration</label>
             <div class="row">
-                <input type="range" id="duration" name="duration" min="0" max="18">
+                <input type="range" id="duration" name="duration" min="1" max="18">
                 <output name="bubble" id="duration-bubble" for="duration">0</output>
             </div>
 
 
             <label for="deposit-amount">Deposit Amount</label>
             <div class="row">
-                <input type="range" id="deposit-amount" name="deposit-amount" min="0" max="1500000" step="50000">
+                <input type="range" id="deposit-amount" name="deposit-amount" min="50000" max="1500000" step="50000">
                 <output name="bubble" for="deposit-amount">0</output>
             </div>
 
-            <label for="debit-amount">Debit Amount</label>
+            <label for="debit-amount">Initial Amount</label>
             <div class="row">
-                <input type="range" id="debit-amount" name="debit-amount" min="0" max="100000" step="10000">
+                <input type="range" id="debit-amount" name="debit-amount" min="10000" max="100000" step="10000">
                 <output name="bubble" for="debit-amount">0</output>
             </div>
 
@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script src="index.js"></script>
